@@ -2490,8 +2490,13 @@ void Session::createTorrentHandle(const libt::torrent_handle &nativeHandle)
         logger->addMessage(tr("'%1' added to download list.", "'torrent name' was added to download list.")
                            .arg(torrent->name()));
 
+
+        // Always download torrents in sequential order
+        torrent->setSequentialDownload(true);
+
         // In case of crash before the scheduled generation
         // of the fastresumes.
+        
         saveTorrentResumeData(torrent);
     }
 
