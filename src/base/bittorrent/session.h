@@ -222,6 +222,9 @@ namespace BitTorrent
         bool isAddTorrentPaused() const;
         void setAddTorrentPaused(bool value);
 
+        bool isAddTorrentSequential() const;
+        void setAddTorrentSequential(bool value);
+
         TorrentHandle *findTorrent(const InfoHash &hash) const;
         QHash<InfoHash, TorrentHandle *> torrents() const;
         TorrentStatusReport torrentStatusReport() const;

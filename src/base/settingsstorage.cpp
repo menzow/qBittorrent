@@ -103,6 +103,7 @@ namespace
             { "BitTorrent/Session/TempPath", "Preferences/Downloads/TempPath" },
             { "BitTorrent/Session/TempPathEnabled", "Preferences/Downloads/TempPathEnabled" },
             { "BitTorrent/Session/AddTorrentPaused", "Preferences/Downloads/StartInPause" },
+            { "BitTorrent/Session/AddTorrentSequential", "Preferences/Downloads/StartInSequential" },
 #ifdef QBT_USES_QT5
             { "AddNewTorrentDialog/TreeHeaderState", "AddNewTorrentDialog/qt5/treeHeaderState" },
 #else

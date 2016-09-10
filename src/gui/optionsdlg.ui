@@ -710,6 +710,13 @@
                 </widget>
                </item>
                <item>
+                <widget class="QCheckBox" name="checkStartSequential">
+                 <property name="text">
+                  <string comment="The torrent will start downloading in sequential order">The torrent will start downloading in sequential order</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
                 <widget class="QCheckBox" name="checkStartPaused">
                  <property name="text">
                   <string comment="The torrent will be added to download list in pause state">Do not start the download automatically</string>

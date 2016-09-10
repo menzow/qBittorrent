@@ -103,6 +103,7 @@ const QString KEY_DISABLE_AUTOTMM_ONCATEGORYCHANGED = SETTINGS_KEY("DisableAutoT
 const QString KEY_DISABLE_AUTOTMM_ONDEFAULTSAVEPATHCHANGED = SETTINGS_KEY("DisableAutoTMMTriggers/DefaultSavePathChanged");
 const QString KEY_DISABLE_AUTOTMM_ONCATEGORYSAVEPATHCHANGED = SETTINGS_KEY("DisableAutoTMMTriggers/CategorySavePathChanged");
 const QString KEY_ADDTORRENTPAUSED = SETTINGS_KEY("AddTorrentPaused");
+const QString KEY_ADDTORRENTSEQUENTIAL = SETTINGS_KEY("AddTorrentSequential");
 
 namespace
 {
@@ -540,6 +541,18 @@ void Session::setAddTorrentPaused(bool value)
 {
     m_settings->storeValue(KEY_ADDTORRENTPAUSED, value);
 }
+
+bool Session::isAddTorrentSequential() const
+{
+    return m_settings->loadValue(KEY_ADDTORRENTSEQUENTIAL, false).toBool();
+}
+
+void Session::setAddTorrentSequential(bool value)
+{
+    m_settings->storeValue(KEY_ADDTORRENTSEQUENTIAL, value);
+}
+
+
 
 qreal Session::globalMaxRatio() const
 {
@@ -2492,7 +2505,7 @@ void Session::createTorrentHandle(const libt::torrent_handle &nativeHandle)
 
 
         // Always download torrents in sequential order
-        torrent->setSequentialDownload(true);
+        torrent->setSequentialDownload(isAddTorrentSequential());
 
         // In case of crash before the scheduled generation
         // of the fastresumes.
